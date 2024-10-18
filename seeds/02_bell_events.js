@@ -1,7 +1,7 @@
 export async function seed(knex) {
   // Deletes ALL existing entries
-  await knex("events").del();
-  await knex("events").insert([
+  await knex("bell_events").del();
+  await knex("bell_events").insert([
     {
       id: 1,
       title: "Mind Matters: Breaking the Silence",

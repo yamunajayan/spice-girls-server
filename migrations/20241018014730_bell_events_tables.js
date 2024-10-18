@@ -1,5 +1,5 @@
 export async function up(knex) {
-  return knex.schema.createTable("events", (table) => {
+  return knex.schema.createTable("bell_events", (table) => {
     table.increments("id").primary(); // Primary key
     table.string("title").notNullable(); // Event title
     table.string("description"); // Event description
@@ -16,5 +16,5 @@ export async function up(knex) {
 }
 
 export async function down(knex) {
-  return knex.schema.dropTableIfExists("events");
+  return knex.schema.dropTableIfExists("bell_events");
 }

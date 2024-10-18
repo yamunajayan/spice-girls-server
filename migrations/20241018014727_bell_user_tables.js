@@ -1,13 +1,6 @@
 export async function up(knex) {
-  return knex.schema.createTable("registrations", (table) => {
+  return knex.schema.createTable("users", (table) => {
     table.increments("id").primary(); // Primary key
-    table
-      .integer("event_id")
-      .unsigned()
-      .notNullable()
-      .references("events.id")
-      .onUpdate("CASCADE")
-      .onDelete("CASCADE"); // Foreign key with cascading updates/deletes
     table.string("user_name").notNullable(); // User name
     table.string("user_email").notNullable(); // User email
     table.string("phone_number").notNullable(); // User number
@@ -19,5 +12,5 @@ export async function up(knex) {
 }
 
 export async function down(knex) {
-  return knex.schema.dropTableIfExists("registrations"); // Drop table if it exists
+  return knex.schema.dropTableIfExists("users"); // Drop table if it exists
 }
